@@ -1,14 +1,11 @@
 package net.kordian.shortener.services;
 
-import net.kordian.shortener.entities.Gender;
 import net.kordian.shortener.entities.User;
 import net.kordian.shortener.exceptions.UserNotFoundException;
 import net.kordian.shortener.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,7 +19,7 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        return userRepository.save(user);
+        return userRepository.saveAndFlush(user);
     }
 
     public List<User> getAllUsers() {

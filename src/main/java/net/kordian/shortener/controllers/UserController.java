@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users/v1")
+@RequestMapping("api/v1/users")
 public class UserController {
 
     private final UserService userService;
@@ -39,7 +39,18 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        // TODO: Prevent body from being null
+
+        if (user == null || !(user instanceof User)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         User createdUser = userService.createUser(user);
+
+        if (!user.equals(createdUser)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 

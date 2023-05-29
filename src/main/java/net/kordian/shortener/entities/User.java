@@ -1,14 +1,15 @@
 package net.kordian.shortener.entities;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
+@Data
 @Table(name = "users")
 public class User {
 
@@ -16,9 +17,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName, lastName, password, email;
+    private String firstName;
+    private String lastName;
 
-    private LocalDate dob;
+    private String password;
+
+    private String email;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
