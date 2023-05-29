@@ -1,4 +1,4 @@
-package net.kordian.shortener.entities;
+package net.kordian.shortener.user;
 
 public enum Gender {
     MALE,

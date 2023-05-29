@@ -1,9 +1,9 @@
 package net.kordian.shortener;
 
-import net.kordian.shortener.controllers.UserController;
-import net.kordian.shortener.entities.User;
-import net.kordian.shortener.exceptions.UserNotFoundException;
-import net.kordian.shortener.services.UserService;
+import net.kordian.shortener.user.UserController;
+import net.kordian.shortener.user.User;
+import net.kordian.shortener.user.exceptions.UserNotFoundException;
+import net.kordian.shortener.user.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,8 +1,6 @@
-package net.kordian.shortener.services;
+package net.kordian.shortener.user;
 
-import net.kordian.shortener.entities.User;
-import net.kordian.shortener.exceptions.UserNotFoundException;
-import net.kordian.shortener.repositories.UserRepository;
+import net.kordian.shortener.user.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,6 @@
-package net.kordian.shortener.controllers;
+package net.kordian.shortener.user;
 
-import net.kordian.shortener.entities.User;
-import net.kordian.shortener.exceptions.UserNotFoundException;
-import net.kordian.shortener.services.UserService;
+import net.kordian.shortener.user.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

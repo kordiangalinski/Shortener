@@ -1,4 +1,4 @@
-package net.kordian.shortener.exceptions;
+package net.kordian.shortener.user.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String message) {
