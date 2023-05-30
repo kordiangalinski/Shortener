@@ -1,6 +1,6 @@
 package net.kordian.shortener.user;
 
-public enum Permission {
+public enum Role {
     USER,
-    ADMIN
+    ADMIN;
 }

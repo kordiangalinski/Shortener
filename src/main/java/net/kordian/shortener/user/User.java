@@ -1,63 +1,48 @@
 package net.kordian.shortener.user;
 
-import lombok.*;
-
 import jakarta.persistence.*;
-import net.kordian.shortener.token.Token;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-@Getter
-@Setter
-@Builder
-@Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Entity
+@Table(name = "_user")
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String firstName;
     private String lastName;
-
-    private String password;
-
     private String email;
-
+    private String password;
     @Enumerated(EnumType.STRING)
-    private Gender gender;
-
-    @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
-
-    private boolean isAdmin;
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (isAdmin) {
-            return Collections.singleton(new SimpleGrantedAuthority(Permission.ADMIN.name()));
-        } else {
-            return Collections.singleton(new SimpleGrantedAuthority(Permission.USER.name()));
-        }
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override
     public String getUsername() {
         return email;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override
