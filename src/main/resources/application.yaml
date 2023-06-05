@@ -6,7 +6,11 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
+<<<<<<< Updated upstream
       ddl-auto: create-drop
+=======
+      ddl-auto: create
+>>>>>>> Stashed changes
     show-sql: true
     properties:
       hibernate:
