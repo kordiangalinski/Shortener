@@ -21,17 +21,10 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
-<<<<<<< Updated upstream
-                .firstName(request.firstName())
-                .lastName(request.lastName())
-                .email(request.email())
-                .password(passwordEncoder.encode(request.password()))
-=======
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
->>>>>>> Stashed changes
                 .role(Role.USER)
                 .build();
 
@@ -42,15 +35,9 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
-<<<<<<< Updated upstream
-                new UsernamePasswordAuthenticationToken(request.email(), request.password())
-        );
-        var user = repository.findByEmail(request.email())
-=======
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
         var user = repository.findByEmail(request.getEmail())
->>>>>>> Stashed changes
                 .orElseThrow(() -> new UsernameNotFoundException("user not found"));
         var jwtToken = jwtService.generateToken(user);
         return new AuthenticationResponse(jwtToken);

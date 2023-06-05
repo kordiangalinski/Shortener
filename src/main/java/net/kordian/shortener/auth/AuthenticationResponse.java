@@ -1,8 +1,5 @@
 package net.kordian.shortener.auth;
 
-<<<<<<< Updated upstream
-public record AuthenticationResponse(String token) {
-=======
 import lombok.*;
 
 @Data
@@ -12,5 +9,4 @@ import lombok.*;
 @Setter
 public class AuthenticationResponse {
     private String token;
->>>>>>> Stashed changes
 }

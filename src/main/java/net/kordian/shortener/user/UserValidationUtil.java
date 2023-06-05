@@ -11,9 +11,5 @@ public class UserValidationUtil {
         if (userDTO.getEmail() == null || userDTO.getEmail().isEmpty()) {
             throw new UserValidationException("Email is required");
         }
-<<<<<<< Updated upstream
-        // Add additional validation rules as per your requirements
-=======
->>>>>>> Stashed changes
     }
 }

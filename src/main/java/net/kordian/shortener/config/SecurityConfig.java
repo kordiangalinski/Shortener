@@ -3,10 +3,7 @@ package net.kordian.shortener.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-<<<<<<< Updated upstream
-=======
 import org.springframework.http.HttpMethod;
->>>>>>> Stashed changes
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -28,11 +25,8 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(manager -> manager.requestMatchers("/api/v1/auth/**").permitAll())
-<<<<<<< Updated upstream
-=======
                 .authorizeHttpRequests(manager -> manager.requestMatchers(HttpMethod.GET, "/api/v1/urls/**")
                         .permitAll())
->>>>>>> Stashed changes
                 .authorizeHttpRequests(manager -> manager.anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
